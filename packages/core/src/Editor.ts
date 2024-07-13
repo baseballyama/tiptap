@@ -58,6 +58,8 @@ export class Editor extends EventEmitter<EditorEvents> {
 
   public isFocused = false
 
+  public isInitialized = false
+
   public extensionStorage: Record<string, any> = {}
 
   public options: EditorOptions = {
@@ -112,6 +114,7 @@ export class Editor extends EventEmitter<EditorEvents> {
 
       this.commands.focus(this.options.autofocus)
       this.emit('create', { editor: this })
+      this.isInitialized = true
     }, 0)
   }
 
